@@ -1,0 +1,729 @@
+/* App.css */
+
+/* Global Styles */
+body {
+  background-color: #121212; /* Dark background for dark mode */
+  color: #E0E0E0; /* Light gray text for readability */
+  font-family: 'Arial', sans-serif; /* Clean, sans-serif font for a modern look */
+  line-height: 1.6; /* Improved readability */
+}
+
+h1, h2, h3 {
+  font-family: 'Arial', sans-serif; /* Consistent font for headers */
+  color: #FFFFFF; /* Bright white for headers for contrast */
+}
+
+/* Link styles */
+a {
+  color: #BB86FC; /* Soft purple for links */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+a:hover {
+  color: #3700B3; /* Darker purple on hover for clear interaction */
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed; /* Fix the navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1E1E1E; /* Dark background for the navbar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  z-index: 1000; /* Above other content */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem; /* Spacing around navbar */
+}
+
+.logo {
+  font-size: 1.8rem; /* Logo font size */
+  color: #BB86FC; /* Purple color for the logo */
+  text-decoration: none; /* Remove underline */
+}
+
+.nav-links {
+  list-style: none; /* Remove bullet points */
+  display: flex; /* Flexbox for horizontal layout */
+  gap: 1.5rem; /* Reduced space between links */
+}
+
+.nav-links a {
+  color: #E0E0E0; /* Light gray for links */
+  font-size: 1rem; /* Font size for links */
+  transition: color 0.3s; /* Smooth color change */
+}
+
+.nav-links a:hover {
+  color: #BB86FC; /* Color change on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide links in mobile */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute; /* Absolute positioning */
+    top: 60px; /* Space below navbar */
+    left: 0;
+    right: 0;
+    background-color: rgba(30, 30, 30, 0.95); /* Dark background */
+    padding: 1rem 0; /* Spacing for links */
+    z-index: 999; /* Above other content */
+  }
+
+  .navbar-container {
+    justify-content: space-between; /* Flex layout for mobile */
+  }
+
+  .navbar.active .nav-links {
+    display: flex; /* Show links when navbar is active */
+  }
+}
+
+/* Hero Styles */
+.hero-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #9b59b6; /* Purple accent */
+  color: white;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #8e44ad;
+  transform: scale(1.05);
+}
+
+.hero-title, .hero-subtitle {
+  position: relative;
+  display: inline-block;
+  color: #9b59b6; /* Purple accent */
+  overflow: hidden;
+}
+
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Start slightly above */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End in place */
+  }
+}
+
+/* Section Styles */
+section {
+  padding: 4rem 0; /* Consistent vertical spacing */
+  position: relative; /* For pseudo-elements */
+  background-color: #1E1E1E; /* Dark background for sections */
+  border-radius: 8px; /* Rounded corners for softer appearance */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+#about, #projects, #skills {
+  margin: 1.5rem; /* Consistent margin for sections */
+}
+
+/* Button Styles */
+button, .cta {
+  background-color: #4CAF50; /* Green background */
+  color: #FFFFFF; /* White text */
+  padding: 1rem 2rem; /* Padding inside button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  font-weight: bold; /* Bold text */
+}
+
+button:hover, .cta:hover {
+  background-color: #388E3C; /* Darker green on hover */
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Skills Styles */
+.skills-container {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Arrange elements vertically */
+  align-items: center; /* Horizontally center the content */
+  padding: 5rem 0; /* Maintain vertical padding */
+  text-align: center; /* Center align all text */
+  width: 100%; /* Ensure the container takes the full width of the viewport */
+  background-color: #121212; /* Dark background for the entire section */
+}
+
+.section-title {
+  font-size: 3rem; /* Larger font size */
+  color: #FFD700; /* Gold color for title */
+  margin-bottom: 3rem; /* Increased margin below the title */
+}
+
+.skills-list {
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid columns */
+  gap: 30px; /* Increased space between grid items */
+  max-width: 1200px; /* Constrain width for larger screens */
+  margin: 0 auto; /* Center the grid horizontally */
+}
+
+.skill-card {
+  background: linear-gradient(135deg, #2D2D2D, #1E1E1E); /* Dark background for skill cards */
+  border-radius: 8px; /* Rounded corners */
+  padding: 25px; /* Adjusted inner padding for more space */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  overflow: hidden; /* Ensures that content doesn't overflow */
+  text-align: center; /* Center align text within the card */
+}
+
+.skill-card:hover {
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5); /* Shadow on hover */
+}
+
+.card-header {
+  display: flex; /* Flexbox for layout */
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center; /* Center horizontally */
+  margin-bottom: 15px; /* Space below header */
+}
+
+.icon {
+  font-size: 2.5rem; /* Icon size */
+  color: #FFD700; /* Gold color for icons */
+  margin-bottom: 10px; /* Space between icon and title */
+}
+
+.category-title {
+  font-size: 1.8rem; /* Font size for category title */
+  color: #E0E0E0; /* Light gray for category title */
+}
+
+.skills-details {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin-top: 10px; /* Space above the list */
+}
+
+.skill-item {
+  color: #BB86FC; /* Purple for skill items */
+  margin: 0.5rem 0; /* Space between skills */
+  font-size: 1rem; /* Font size for skill items */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.skill-item:hover {
+  color: #FFD700; /* Change color on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .skills-list {
+    padding: 0 1rem; /* Added padding for mobile */
+    grid-template-columns: 1fr; /* Stack items on smaller screens */
+  }
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .circle-chart {
+    grid-template-columns: 1fr; /* Stack items on top of each other on mobile */
+    padding: 0 1.5rem; /* Added extra padding for mobile screens */
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav {
+    padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+  }
+
+  #hero h1 {
+    font-size: 2.5rem; /* Smaller heading on mobile */
+  }
+
+  .skills-list {
+    grid-template-columns: 1fr; /* Stack items on top of each other on mobile */
+    padding: 0 1.5rem; /* Added extra padding for mobile screens */
+  }
+
+  /* Adjust section paddings for mobile */
+  section {
+    padding: 3rem 0; /* Increased padding for mobile */
+  }
+}
+
+
+/* About Styles */
+.about-container {
+  background: linear-gradient(135deg, #2D2D2D, #1E1E1E); /* Gradient background */
+  padding: 2.5rem; /* Padding inside the about container */
+  border-radius: 15px; /* Rounded corners for a softer appearance */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Deeper shadow for depth */
+  max-width: 800px; /* Maximum width for the about section */
+  margin: 2rem auto; /* Center the box with top and bottom margin */
+  position: relative; /* Position for pseudo-elements */
+  margin-top: 10%;
+}
+
+/* Optional Decorative Element */
+.about-container::before {
+  content: ''; /* Empty content for the pseudo-element */
+  position: absolute; 
+  top: -20px; /* Position above the container */
+  left: 0; 
+  right: 0; 
+  height: 10px; 
+  border-radius: 15px 15px 0 0; /* Rounded top corners */
+}
+
+/* Text Styles */
+.about-text {
+  line-height: 1.6; /* Improved line spacing for readability */
+  color: #E0E0E0; /* Light gray text for contrast */
+  font-size: 1.1rem; /* Slightly larger font size for better readability */
+  margin: 0; /* Remove default margin */
+}
+
+.about-title {
+  color: #FFD700; /* Gold color for the title */
+  font-size: 2rem; /* Larger font size for emphasis */
+  text-align: center; /* Center the title */
+  margin-bottom: 1rem; /* Spacing below the title */
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2rem; /* Reduced padding on smaller screens */
+    max-width: 95%; /* Allow more width on smaller devices */
+  }
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 1.5rem; /* Reduced padding on smaller screens */
+    max-width: 95%; /* Allow more width on smaller devices */
+  }
+}
+
+
+/* Projects Section Styles */
+#projects {
+  background-color: #2D2D2D; /* Background color for contrast */
+  padding: 3rem 0; /* Padding top and bottom */
+  color: #E0E0E0; /* Text color */
+}
+
+/* Title Styles */
+.projects-title {
+  text-align: center; /* Center the title */
+  font-size: 2.5rem; /* Larger font size */
+  color: #FFD700; /* Gold color for title */
+  margin-bottom: 2rem; /* Spacing below the title */
+}
+
+/* Projects Container */
+.projects-container {
+  display: grid; /* Grid layout for projects */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 1.5rem; /* Space between cards */
+  max-width: 1200px; /* Maximum width for the container */
+  margin: 0 auto; /* Center the container */
+  padding: 0 1rem; /* Padding for smaller screens */
+}
+
+/* Project Card Styles */
+.project-card {
+  background-color: #3C3C3C; /* Card background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Shadow effect */
+  overflow: hidden; /* Hide overflow */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover Effect */
+.project-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Project Image Styles */
+.project-image {
+  width: 100%; /* Full width for images */
+  height: 150px; /* Fixed height for uniformity */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+/* Title and Description Styles */
+.project-title {
+  font-size: 1.5rem; /* Title font size */
+  margin: 1rem; /* Spacing around title */
+  color: #FFD700; /* Gold color for title */
+  text-align: center; /* Center title */
+}
+
+.project-description {
+  font-size: 1rem; /* Description font size */
+  margin: 0 1rem 1rem; /* Spacing for description */
+  text-align: center; /* Center description */
+}
+
+/* Link Styles */
+.project-link {
+  display: block; /* Full width link */
+  text-align: center; /* Center link */
+  background-color: #FFD700; /* Background color for link */
+  color: #2D2D2D; /* Text color for link */
+  padding: 0.5rem 0; /* Padding for link */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners */
+  margin: 0 1rem 1rem; /* Spacing below link */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect for Link */
+.project-link:hover {
+  background-color: #FFC107; /* Slightly darker gold on hover */
+}
+/* Projects Section Styles */
+#projects {
+  background-color: #2D2D2D; /* Background color for contrast */
+  padding: 3rem 0; /* Padding top and bottom */
+  color: #E0E0E0; /* Text color */
+}
+
+/* Title Styles */
+.projects-title {
+  text-align: center; /* Center the title */
+  font-size: 2.5rem; /* Larger font size */
+  color: #FFD700; /* Gold color for title */
+  margin-bottom: 2rem; /* Spacing below the title */
+}
+
+/* Projects Container */
+.projects-container {
+  display: flex; /* Use flexbox for horizontal layout */
+  flex-wrap: wrap; /* Allow wrapping of items */
+  gap: 1.5rem; /* Space between cards */
+  max-width: 1200px; /* Maximum width for the container */
+  margin: 0 auto; /* Center the container */
+  padding: 0 1rem; /* Padding for smaller screens */
+}
+
+/* Project Card Styles */
+.project-card {
+  background-color: #3C3C3C; /* Card background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Shadow effect */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+  flex: 0 0 300px; /* Set a fixed width for each card (change as needed) */
+  max-width: 100%; /* Ensure card doesn't overflow */
+}
+
+/* Hover Effect */
+.project-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Project Image Styles */
+.project-image {
+  width: 100%; /* Full width for images */
+  height: 150px; /* Fixed height for uniformity */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+/* Title and Description Styles */
+.project-title {
+  font-size: 1.5rem; /* Title font size */
+  margin: 1rem; /* Spacing around title */
+  color: #FFD700; /* Gold color for title */
+  text-align: center; /* Center title */
+}
+
+.project-description {
+  font-size: 1rem; /* Description font size */
+  margin: 0 1rem 1rem; /* Spacing for description */
+  text-align: center; /* Center description */
+}
+
+/* Link Styles */
+.project-link {
+  display: block; /* Full width link */
+  text-align: center; /* Center link */
+  background-color: #FFD700; /* Background color for link */
+  color: #2D2D2D; /* Text color for link */
+  padding: 0.5rem 0; /* Padding for link */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners */
+  margin: 0 1rem 1rem; /* Spacing below link */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect for Link */
+.project-link:hover {
+  background-color: #FFC107; /* Slightly darker gold on hover */
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #1E1E1E; /* Dark footer background */
+  padding: 1rem; /* Padding */
+  text-align: center; /* Centered text */
+  color: #BB86FC; /* Purple text for footer */
+}
+
+.footer-link {
+  color: #BB86FC; /* Purple for footer links */
+  text-decoration: none; /* No underline */
+}
+
+
+/* Experience Styles */
+.experience-container {
+  padding: 4rem 0; /* Consistent vertical spacing */
+  background-color: #121212; /* Dark background for the entire section */
+}
+
+.section-title {
+  text-align: center; /* Center align the section title */
+  font-size: 3rem; /* Larger font size */
+  color: #FFD700; /* Gold color for title */
+  margin-bottom: 3rem; /* Spacing below the title */
+  text-transform: uppercase; /* Uppercase for title for emphasis */
+  letter-spacing: 2px; /* Slight spacing between letters */
+}
+
+.timeline {
+  position: relative; /* Required for absolute positioning of items */
+  max-width: 1000px; /* Increased width for larger screens */
+  margin: 0 auto; /* Center the timeline */
+  padding: 0 1.5rem; /* Padding to prevent content from hitting the screen edges */
+}
+
+.timeline-item {
+  background: linear-gradient(135deg, #2D2D2D, #1E1E1E); /* Dark gradient for contrast */
+  border-radius: 12px; /* Rounded corners for modern look */
+  padding: 30px; /* Increased inner padding for breathing room */
+  margin: 30px 0; /* Increased space between items */
+  position: relative; /* For absolute positioning of icons */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center vertically */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.timeline-item:hover {
+  transform: translateY(-10px); /* Slight lift on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7); /* Enhance shadow on hover */
+}
+
+.item-content {
+  flex: 1; /* Flex grow to take up space */
+}
+
+h3 {
+  color: #FFD700; /* Gold color for the title */
+  font-size: 1.8rem; /* Larger font for the title */
+  margin-bottom: 0.5rem; /* Space below title */
+}
+
+p {
+  color: #E0E0E0; /* Light gray for text */
+  margin-bottom: 0.5rem; /* Space between paragraphs */
+}
+
+.company {
+  font-weight: bold; /* Bold company name */
+  color: #BB86FC; /* Purple for company name */
+}
+
+.location {
+  margin-left: 10px; /* Space between duration and location */
+  font-style: italic; /* Italic for location */
+  color: #A0A0A0; /* Lighter gray for location */
+}
+
+.skills {
+  margin-top: 0.5rem; /* Space above skills */
+  color: #BB86FC; /* Purple for skills */
+  font-size: 1rem; /* Smaller font for skills */
+}
+
+.date-icon {
+  position: absolute; /* Positioning for the icon */
+  right: -40px; /* Move icon to the right */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for true vertical centering */
+  font-size: 1.5rem; /* Increase icon size */
+  color: #FFD700; /* Gold color for icon */
+}
+
+
+
+/* Hover effects for icons */
+.icon:hover {
+  color: #FFD700; /* Change icon color on hover */
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .timeline {
+    padding: 0 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .timeline-item {
+    flex-direction: column; /* Stack items vertically on small screens */
+    text-align: center; /* Center-align text on smaller screens */
+  }
+
+  .date-icon {
+    position: static; /* Remove absolute positioning */
+    margin-top: 10px; /* Add space between icon and content */
+  }
+
+  .timeline-item::before {
+    left: 20px; /* Adjust the vertical timeline line */
+  }
+}
+
+
+
+/* Contact Styles */
+.contact-container {
+  padding: 4rem 0; /* Consistent vertical spacing */
+}
+
+.section-title {
+  text-align: center; /* Center align the section title */
+  font-size: 2.5rem; /* Larger font size */
+  color: #FFD700; /* Gold color for title */
+  margin-bottom: 2rem; /* Spacing below the title */
+}
+
+.contact-form {
+  max-width: 600px; /* Limit width for better readability */
+  margin: 0 auto; /* Center the form */
+  background: linear-gradient(135deg, #2D2D2D, #1E1E1E); /* Dark background for the form */
+  border-radius: 8px; /* Rounded corners */
+  padding: 2rem; /* Inner padding */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Column layout for form elements */
+}
+
+.form-group {
+  position: relative; /* Positioning for icons */
+  margin-bottom: 1.5rem; /* Spacing between fields */
+}
+
+.form-icon {
+  position: absolute; /* Absolute positioning for icons */
+  top: 50%; /* Center vertically */
+  left: 1rem; /* Space from the left */
+  transform: translateY(-50%); /* Adjust for vertical alignment */
+  color: #FFD700; /* Gold color for icons */
+  font-size: 1.5rem; /* Icon size */
+}
+
+input, textarea {
+  width: 100%; /* Full width for inputs */
+  padding: 1rem 1rem 1rem 3rem; /* Padding for inputs */
+  border: 1px solid #BB86FC; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  background: #1E1E1E; /* Input background color */
+  color: #FFF; /* Input text color */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+textarea {
+  min-height: 100px; /* Minimum height for textarea */
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+.submit-button {
+  background-color: #FFD700; /* Gold color for button */
+  color: #3C3C3C; /* Dark text color for button */
+  border: none; /* Remove border */
+  padding: 0.75rem; /* Button padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background 0.3s ease; /* Transition for hover effect */
+}
+
+.submit-button:hover {
+  background-color: #BB86FC; /* Change color on hover */
+}
+
+.feedback-message {
+  text-align: center; /* Center align feedback */
+  margin-top: 1rem; /* Spacing above feedback */
+  font-weight: bold; /* Bold text */
+}
+
+.success {
+  color: #4CAF50; /* Green color for success message */
+}
+
+.error {
+  color: #F44336; /* Red color for error message */
+}
+
+
+/* NotFound Styles */
+.not-found-container {
+  position: relative; /* Position relative for absolute children */
+  min-height: 100vh; /* Full height of the viewport */
+  display: flex; /* Flexbox for centering */
+  flex-direction: column; /* Column layout */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  color: white; /* Text color */
+  text-align: center; /* Center text */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.canvas {
+  position: absolute; /* Absolute positioning for the canvas */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Send to back */
+  pointer-events: none; /* Prevent interactions with the canvas */
+}
+
+h1, p, a {
+  position: relative; /* Position relative for z-index */
+  z-index: 1; /* Bring text above the canvas */
+}
+
+
+.Timeline {
+  font-weight: bolder;
+}
